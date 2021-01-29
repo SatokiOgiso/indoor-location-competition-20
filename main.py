@@ -178,12 +178,14 @@ if __name__ == "__main__":
     parser.add_argument('id', help='data id. Ex: 5a0546857ecc773753327266')
     parser.add_argument('floor', help='floor. Ex: B1')
     parser.add_argument('data_root', help='data type. Ex: train')
+    parser.add_argument('bssid', help='wifi bssid. Ex: c08ad78a45798cfe176a42b35c7381ae602711c5')
     args = parser.parse_args()
 
     metadata_root = args.metadata_root
     id = args.id
     floor = args.floor
     data_root = args.data_root
+    bssid = args.bssid
 
     floor_data_dir = '/'.join([metadata_root, id, floor])
     path_data_dir = '/'.join([data_root, id, floor])
@@ -250,7 +252,10 @@ if __name__ == "__main__":
     print('Example 10 wifi ap bssids:\n')
     for bssid in ten_wifi_bssids:
         print(bssid)
-    target_wifi = input(f"Please input target wifi ap bssid:\n")
+    
+    target_wifi = bssid
+    print(f"Target wifi bssid is {target_wifi}\n")
+
     # target_wifi = '1e:74:9c:a7:b2:e4'
     heat_positions = np.array(list(wifi_rssi[target_wifi].keys()))
     heat_values = np.array(list(wifi_rssi[target_wifi].values()))[:, 0]
