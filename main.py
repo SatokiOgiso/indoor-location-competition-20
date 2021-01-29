@@ -180,18 +180,18 @@ if __name__ == "__main__":
 
     data_root = parser.add_argument('data_root', help='data type. Ex: train')
 
-    floor_data_dir = metadata_root + "/" + id + "/" + floor
-    path_data_dir = data_root + "/" + id + "/" + floor
-    floor_plan_filename = floor_data_dir + '/floor_image.png'
-    floor_info_filename = floor_data_dir + '/floor_info.json'
+    floor_data_dir = '/'.join([metadata_root,, id, floor])
+    path_data_dir = '/'.join([data_root,, id, floor])
+    floor_plan_filename = '/'.join([floor_data_dir, 'floor_image.png'])
+    floor_info_filename = '/'.join([floor_data_dir, 'floor_info.json'])
+
     
-    
-    save_dir = './output/' + "/" + id + "/" + floor
-    path_image_save_dir = save_dir + '/path_images'
+    save_dir = '/'.join(['./output', id, floor])
+    path_image_save_dir = '/'.join([save_dir, 'path_images'])
     step_position_image_save_dir = save_dir
     magn_image_save_dir = save_dir
-    wifi_image_save_dir = save_dir + '/wifi_images'
-    ibeacon_image_save_dir = save_dir + '/ibeacon_images'
+    wifi_image_save_dir = '/'.join([save_dir, 'wifi_images'])
+    ibeacon_image_save_dir = '/'.join([save_dir, 'ibeacon_images'])
     wifi_count_image_save_dir = save_dir
 
 
