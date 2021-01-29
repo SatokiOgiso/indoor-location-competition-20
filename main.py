@@ -273,7 +273,8 @@ if __name__ == "__main__":
     print('Example 10 ibeacon UUID_MajorID_MinorIDs:\n')
     for ummid in ten_ibeacon_ummids:
         print(ummid)
-    target_ibeacon = input(f"Please input target ibeacon UUID_MajorID_MinorID:\n")
+    #target_ibeacon = input(f"Please input target ibeacon UUID_MajorID_MinorID:\n")
+    target_ibeacon = ibeacon
     # target_ibeacon = 'FDA50693-A4E2-4FB1-AFCF-C6EB07647825_10073_61418'
     heat_positions = np.array(list(ibeacon_rssi[target_ibeacon].keys()))
     heat_values = np.array(list(ibeacon_rssi[target_ibeacon].values()))[:, 0]
