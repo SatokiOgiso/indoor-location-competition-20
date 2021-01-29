@@ -180,7 +180,7 @@ if __name__ == "__main__":
 
     data_root = parser.add_argument('data_root', help='data type. Ex: train')
 
-    floor_data_dir = '/'.join([metadata_root,, id, floor])
+    floor_data_dir = '/'.join([metadata_root, id, floor])
     path_data_dir = '/'.join([data_root,, id, floor])
     floor_plan_filename = '/'.join([floor_data_dir, 'floor_image.png'])
     floor_info_filename = '/'.join([floor_data_dir, 'floor_info.json'])
