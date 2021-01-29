@@ -178,8 +178,8 @@ if __name__ == "__main__":
     parser.add_argument('id', help='data id. Ex: 5a0546857ecc773753327266')
     parser.add_argument('floor', help='floor. Ex: B1')
     parser.add_argument('data_root', help='data type. Ex: train')
-    parser.add_argument('bssid', help='wifi bssid. Ex: c08ad78a45798cfe176a42b35c7381ae602711c5')
-    parser.add_argument('ibeacon', help='ibeacon. Ex: 4e9d3569a79dcbd102831d1bd587aa4e868ae797_ef912d993ba9390995ad358f1f698164f604ad9f_156b02ac8f89c8386ab1e96084d29579563defb5')
+    #parser.add_argument('bssid', help='wifi bssid. Ex: c08ad78a45798cfe176a42b35c7381ae602711c5')
+    #parser.add_argument('ibeacon', help='ibeacon. Ex: 4e9d3569a79dcbd102831d1bd587aa4e868ae797_ef912d993ba9390995ad358f1f698164f604ad9f_156b02ac8f89c8386ab1e96084d29579563defb5')
     
     args = parser.parse_args()
 
@@ -259,6 +259,7 @@ if __name__ == "__main__":
     target_wifi = bssid
     print(f"Target wifi bssid is {target_wifi}\n")
 
+    target_wifi = input(f"Please input target wifi ap bssid:\n")
     # target_wifi = '1e:74:9c:a7:b2:e4'
     heat_positions = np.array(list(wifi_rssi[target_wifi].keys()))
     heat_values = np.array(list(wifi_rssi[target_wifi].values()))[:, 0]
@@ -273,8 +274,10 @@ if __name__ == "__main__":
     print('Example 10 ibeacon UUID_MajorID_MinorIDs:\n')
     for ummid in ten_ibeacon_ummids:
         print(ummid)
+
+    target_ibeacon = input(f"Please input target ibeacon UUID_MajorID_MinorID:\n")
     #target_ibeacon = input(f"Please input target ibeacon UUID_MajorID_MinorID:\n")
-    target_ibeacon = ibeacon
+    #target_ibeacon = ibeacon
     # target_ibeacon = 'FDA50693-A4E2-4FB1-AFCF-C6EB07647825_10073_61418'
     heat_positions = np.array(list(ibeacon_rssi[target_ibeacon].keys()))
     heat_values = np.array(list(ibeacon_rssi[target_ibeacon].values()))[:, 0]
