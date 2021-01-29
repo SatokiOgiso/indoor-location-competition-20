@@ -187,8 +187,8 @@ if __name__ == "__main__":
     id = args.id
     floor = args.floor
     data_root = args.data_root
-    bssid = args.bssid
-    ibeacon = args.ibeacon
+    #bssid = args.bssid
+    #ibeacon = args.ibeacon
 
     floor_data_dir = '/'.join([metadata_root, id, floor])
     path_data_dir = '/'.join([data_root, id, floor])
