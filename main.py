@@ -1,3 +1,4 @@
+import argparse
 import json
 import os
 from pathlib import Path
@@ -171,6 +172,29 @@ def extract_wifi_count(mwi_datas):
 
 
 if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description='indoor-location-competition-20')
+
+    metadata_root = parser.add_argument('metadata_root', help='metadata root. Ex: metadata')
+    id = parser.add_argument('id', help='data id. Ex: 5a0546857ecc773753327266')
+    floor = parser.add_argument('floor', help='floor. Ex: B1')
+
+    data_root = parser.add_argument('data_root', help='data type. Ex: train')
+
+    floor_data_dir = metadata_root + "/" + id + "/" + floor
+    path_data_dir = data_root + "/" + id + "/" + floor
+    floor_plan_filename = floor_data_dir + '/floor_image.png'
+    floor_info_filename = floor_data_dir + '/floor_info.json'
+    
+    
+    save_dir = './output/' + "/" + id + "/" + floor
+    path_image_save_dir = save_dir + '/path_images'
+    step_position_image_save_dir = save_dir
+    magn_image_save_dir = save_dir
+    wifi_image_save_dir = save_dir + '/wifi_images'
+    ibeacon_image_save_dir = save_dir + '/ibeacon_images'
+    wifi_count_image_save_dir = save_dir
+
+
     Path(path_image_save_dir).mkdir(parents=True, exist_ok=True)
     Path(magn_image_save_dir).mkdir(parents=True, exist_ok=True)
     Path(wifi_image_save_dir).mkdir(parents=True, exist_ok=True)
