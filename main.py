@@ -174,16 +174,23 @@ def extract_wifi_count(mwi_datas):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='indoor-location-competition-20')
 
-    metadata_root = parser.add_argument('metadata_root', help='metadata root. Ex: metadata')
-    id = parser.add_argument('id', help='data id. Ex: 5a0546857ecc773753327266')
-    floor = parser.add_argument('floor', help='floor. Ex: B1')
+    parser.add_argument('metadata_root', help='metadata root. Ex: metadata')
+    parser.add_argument('id', help='data id. Ex: 5a0546857ecc773753327266')
+    parser.add_argument('floor', help='floor. Ex: B1')
+    parser.add_argument('data_root', help='data type. Ex: train')
+    args = parser.parse_args()
 
-    data_root = parser.add_argument('data_root', help='data type. Ex: train')
+    metadata_root = args.metadata_root
+    id = args.id
+    floor = args.floor
+    data_root = args.data_root
 
     floor_data_dir = '/'.join([metadata_root, id, floor])
     path_data_dir = '/'.join([data_root, id, floor])
     floor_plan_filename = '/'.join([floor_data_dir, 'floor_image.png'])
     floor_info_filename = '/'.join([floor_data_dir, 'floor_info.json'])
+    
+
 
     
     save_dir = '/'.join(['./output', id, floor])
