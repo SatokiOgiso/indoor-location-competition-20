@@ -179,6 +179,8 @@ if __name__ == "__main__":
     parser.add_argument('floor', help='floor. Ex: B1')
     parser.add_argument('data_root', help='data type. Ex: train')
     parser.add_argument('bssid', help='wifi bssid. Ex: c08ad78a45798cfe176a42b35c7381ae602711c5')
+    parser.add_argument('ibeacon', help='ibeacon. Ex: 4e9d3569a79dcbd102831d1bd587aa4e868ae797_ef912d993ba9390995ad358f1f698164f604ad9f_156b02ac8f89c8386ab1e96084d29579563defb5')
+    
     args = parser.parse_args()
 
     metadata_root = args.metadata_root
@@ -186,6 +188,7 @@ if __name__ == "__main__":
     floor = args.floor
     data_root = args.data_root
     bssid = args.bssid
+    ibeacon = args.ibeacon
 
     floor_data_dir = '/'.join([metadata_root, id, floor])
     path_data_dir = '/'.join([data_root, id, floor])
